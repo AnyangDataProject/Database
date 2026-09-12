@@ -25,8 +25,10 @@ DROP TABLE IF EXISTS `inquiries`;
 CREATE TABLE `inquiries` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `user_id` bigint NOT NULL,
+  `inquiry_type` enum('REPORT','RESULT','SERVICE','ETC') COLLATE utf8mb4_unicode_ci NOT NULL,
   `title` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
   `content` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` enum('WAITING','ANSWERED') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'WAITING',
   `answer` text COLLATE utf8mb4_unicode_ci,
   `answered_by` bigint DEFAULT NULL,
@@ -59,4 +61,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-09-10 11:52:20
+-- Dump completed on 2026-09-12 23:16:45

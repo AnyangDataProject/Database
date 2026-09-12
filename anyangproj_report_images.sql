@@ -31,7 +31,7 @@ CREATE TABLE `report_images` (
   PRIMARY KEY (`id`),
   KEY `fk_report_images_report` (`report_id`),
   CONSTRAINT `fk_report_images_report` FOREIGN KEY (`report_id`) REFERENCES `reports` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,6 +40,7 @@ CREATE TABLE `report_images` (
 
 LOCK TABLES `report_images` WRITE;
 /*!40000 ALTER TABLE `report_images` DISABLE KEYS */;
+INSERT INTO `report_images` VALUES (20,18,'https://anyang-project-bucket.s3.amazonaws.com/d77444d3-47c1-4448-ae99-1de431882e8c.png','image/jpeg','2026-09-12 18:27:46');
 /*!40000 ALTER TABLE `report_images` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-09-10 11:52:19
+-- Dump completed on 2026-09-12 23:16:43

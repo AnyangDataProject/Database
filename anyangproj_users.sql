@@ -30,10 +30,12 @@ CREATE TABLE `users` (
   `phone` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `role` enum('CITIZEN','ADMIN') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'CITIZEN',
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `provider` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `last_login` datetime DEFAULT NULL,
+  `status` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'ACTIVE',
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,6 +44,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'sally20114@gmail.com','$2a$10$F6A8/lbissBuikoUMqRRHejxWvq7icY1HYKYWtPgjBBkHOtykJ7oy','사용자','010-1231-123','CITIZEN','2026-09-12 14:20:33','LOCAL',NULL,'SUSPENDED'),(2,'leenayeon0915@gmail.com','$2a$10$wQPs2vHDG5sQi.yKOf6MXu1luDGaOWCXylsTila0wpoGea0RwmaB.','관리자','010-1231-123','ADMIN','2026-09-12 19:25:00','LOCAL','2026-09-12 22:55:44','ACTIVE');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-09-10 11:52:19
+-- Dump completed on 2026-09-12 23:16:42

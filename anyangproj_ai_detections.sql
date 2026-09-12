@@ -34,7 +34,7 @@ CREATE TABLE `ai_detections` (
   PRIMARY KEY (`id`),
   KEY `fk_ai_detections_analysis` (`ai_analysis_id`),
   CONSTRAINT `fk_ai_detections_analysis` FOREIGN KEY (`ai_analysis_id`) REFERENCES `ai_analyses` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,6 +43,7 @@ CREATE TABLE `ai_detections` (
 
 LOCK TABLES `ai_detections` WRITE;
 /*!40000 ALTER TABLE `ai_detections` DISABLE KEYS */;
+INSERT INTO `ai_detections` VALUES (50,18,'crack',0.5275,11.0000,158.0000,660.0000,217.0000);
 /*!40000 ALTER TABLE `ai_detections` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-09-10 11:52:19
+-- Dump completed on 2026-09-12 23:16:43

@@ -29,10 +29,13 @@ CREATE TABLE `ai_analyses` (
   `model_version` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `result_image_url` varchar(1000) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `analyzed_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `report_image_id` bigint DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_ai_analyses_report` (`report_id`),
-  CONSTRAINT `fk_ai_analyses_report` FOREIGN KEY (`report_id`) REFERENCES `reports` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  KEY `fk_ai_analysis_report_image` (`report_image_id`),
+  CONSTRAINT `fk_ai_analyses_report` FOREIGN KEY (`report_id`) REFERENCES `reports` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `fk_ai_analysis_report_image` FOREIGN KEY (`report_image_id`) REFERENCES `report_images` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,6 +44,7 @@ CREATE TABLE `ai_analyses` (
 
 LOCK TABLES `ai_analyses` WRITE;
 /*!40000 ALTER TABLE `ai_analyses` DISABLE KEYS */;
+INSERT INTO `ai_analyses` VALUES (18,18,'yolov8s','rdd2022','https://anyang-project-bucket.s3.amazonaws.com/aa32c94a-e333-4ce1-a491-716a9610c0b2.jpg','2026-09-12 18:27:50',20);
 /*!40000 ALTER TABLE `ai_analyses` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-09-10 11:52:19
+-- Dump completed on 2026-09-12 23:16:44
